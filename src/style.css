@@ -4,13 +4,3 @@
     font-weight: bolder;
     color:green;
 }
-.navbar-brand{
-    border-radius: 15px;
-    padding: 10px;
-}
-.nav-item{
-    border-radius: 15px;
-    border: 1px solid black;
-    background-color: rgb(43, 179, 25);
-    
-}
