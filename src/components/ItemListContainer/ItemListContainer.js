@@ -3,12 +3,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import ItemCounter from "../ItemCounter/ItemCounter"
 
- const ItemListContainer = ({tittle, description, price, img }) =>{
+ const ItemListContainer = ({tittle, description, price, img, stock}) =>{
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+    <Card sx={{ maxWidth: 450 }}>
+      
         <CardMedia
           component="img"
           height="140"
@@ -25,9 +25,12 @@ import { CardActionArea } from '@mui/material';
           <Typography variant="body2" color="text.secondary">
             {price}
           </Typography>
-
+          <Typography variant="body2" color="text.secondary">
+            <p>stock: {stock}</p>
+          </Typography>
+          <ItemCounter stock={stock}/>
         </CardContent>
-      </CardActionArea>
+      
     </Card>
   );
 }

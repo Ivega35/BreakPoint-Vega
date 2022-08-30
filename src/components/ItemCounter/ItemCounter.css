@@ -1,0 +1,10 @@
+.counterSection{
+    display: flex;
+    justify-content: space-around;
+}
+.btnCounter{
+    color: white;
+    background-color: black;
+    max-height: 2rem;
+
+}
