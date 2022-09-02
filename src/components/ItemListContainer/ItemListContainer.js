@@ -6,7 +6,9 @@ import Typography from '@mui/material/Typography';
 import ItemCounter from "../ItemCounter/ItemCounter"
 
 
-const ItemListContainer = ({ data }) => {
+const ItemListContainer = ({ data}) => {
+ 
+  
   return (
     <Card sx={{ maxWidth: 345 }}>
       
@@ -18,14 +20,12 @@ const ItemListContainer = ({ data }) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-			{data.title}
+			      {data.title}
           </Typography>
           <Typography variant="body2" color="text.primary">
             <p>precio: ${data.price}</p>
           </Typography>
-		  <Typography variant="body2" color="text.primary">
-            <ItemCounter stock={data.rating.rate}/>
-          </Typography>
+          
         </CardContent>
       
     </Card>

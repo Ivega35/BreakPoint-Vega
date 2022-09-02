@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import "./ItemCounter.css"
 
-const ItemCounter = ({stock}) => {
-    const [counter, setCounter]= useState(1);
+const ItemCounter = ({initial, stock, onAdd}) => {
+    const [counter, setCounter]= useState(initial);
 
     const handlerCounterUp = () =>{
-        if(counter < stock){
-          setCounter(counter+ 1 );
+        
+      if(counter < stock){
+          setCounter(counter + 1 );
         };
     };
     const handlerCounterDown = () =>{
@@ -15,16 +16,15 @@ const ItemCounter = ({stock}) => {
       };
     };
   return (
-    
+    <div>
     <div className='counterSection'>
-      
-      
       <button className="btnCounter" onClick={handlerCounterUp}>+</button>
-      <p>Cant:{counter}</p>
+      <h5>Cantidad: {counter}</h5>
       <button className="btnCounter" onClick={handlerCounterDown}>-</button>
-      
+    </div>
+    <button className='btnCart' onClick= {() => onAdd(counter)} >Agregar al carrito</button>
     </div>
   )
 }
 
-export default ItemCounter
+export default ItemCounter;

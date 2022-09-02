@@ -5,7 +5,7 @@ const ItemList = () => {
     const [products, setproducts]= useState([]);
 
    useEffect(() => {
-        fetch('https://fakestoreapi.com/products/')
+        fetch('https://fakestoreapi.com/products?limit=5')
         .then((response) => response.json())
         .then((json) => setproducts(json));
     }, []);

@@ -1,7 +1,12 @@
 .cards-container {
     display: flex;
-    width: 100%;
+    
     justify-content: center;
     background: rgb(2,0,36);
     margin-top: 20px;
+}
+.counterSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

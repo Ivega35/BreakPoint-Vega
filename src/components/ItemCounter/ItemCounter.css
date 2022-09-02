@@ -2,3 +2,11 @@
     display: flex;
     justify-content: space-around;
 }
+.btnCounter{
+    width: 30px;
+}
+.btnCart{
+    width:10rem;
+    text-align: center;
+    margin-left: 35rem;
+}
