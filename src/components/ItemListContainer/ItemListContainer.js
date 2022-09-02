@@ -3,6 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import ItemCounter from "../ItemCounter/ItemCounter"
 
 
 const ItemListContainer = ({ data }) => {
@@ -11,19 +12,19 @@ const ItemListContainer = ({ data }) => {
       
         <CardMedia
           component="img"
-          height="140"
-          image={data.pictureUrl}
+          height="170"
+          image={data.image}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-			{data.tittle}
+			{data.title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {data.price}
+          <Typography variant="body2" color="text.primary">
+            <p>precio: ${data.price}</p>
           </Typography>
-		  <Typography variant="body2" color="text.secondary">
-            <itemCounter stock={data.stock} />
+		  <Typography variant="body2" color="text.primary">
+            <ItemCounter stock={data.rating.rate}/>
           </Typography>
         </CardContent>
       

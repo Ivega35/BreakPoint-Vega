@@ -1,0 +1,4 @@
+.counterSection{
+    display: flex;
+    justify-content: space-around;
+}
