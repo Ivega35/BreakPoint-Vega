@@ -3,36 +3,32 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import ItemCounter from "../ItemCounter/ItemCounter"
 
- const ItemListContainer = ({tittle, description, price, img, stock}) =>{
+
+const ItemListContainer = ({ data }) => {
   return (
-    <Card sx={{ maxWidth: 450 }}>
+    <Card sx={{ maxWidth: 345 }}>
       
         <CardMedia
           component="img"
           height="140"
-          image={img}
+          image={data.pictureUrl}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {tittle}
+			{data.tittle}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {description}
+            {data.price}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {price}
+		  <Typography variant="body2" color="text.secondary">
+            <itemCounter stock={data.stock} />
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <p>stock: {stock}</p>
-          </Typography>
-          <ItemCounter stock={stock}/>
         </CardContent>
       
     </Card>
   );
 }
 
-export default ItemListContainer;
+export default ItemListContainer; 
