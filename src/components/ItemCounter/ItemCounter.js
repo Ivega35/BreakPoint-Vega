@@ -22,7 +22,7 @@ const ItemCounter = ({initial, stock, onAdd}) => {
       <h5>Cantidad: {counter}</h5>
       <button className="btnCounter" onClick={handlerCounterDown}>-</button>
     </div>
-    <button className='btnCart' onClick= {() => onAdd(counter)} >Agregar al carrito</button>
+    <a href='#' className='btn btn-primary' onClick= {() => onAdd(counter)} >Agregar al carrito</a>
     </div>
   )
 }

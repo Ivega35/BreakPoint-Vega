@@ -3,42 +3,49 @@
     "id": 1,
     "title": "paleta Odea Legend",
     "price": 37000,
-    "pictureUrl": "../Assets/palaLegend.png"
+    "pictureUrl": "../Assets/palaLegend.png",
+    "stock":4
 },
 {
     "id": 2,
     "title": "paleta Odea Speed 12k",
     "price": 57000,
-    "pictureUrl": "../Assets/palaOdea.png"
+    "pictureUrl": "../Assets/palaOdea.png",
+    "stock": 2
 },
 {
     "id": 3,
     "title": "paleta Siux",
     "price": 22000,
-    "pictureUrl": "../Assets/palaSiux.png"
+    "pictureUrl": "../Assets/palaSiux.png",
+    "stock": 0
 },
 {
     "id": 4,
-    "title": "paleta Wingpadel Air Combat",
+    "title": "paleta Wingpadel",
     "price": 67000,
-    "pictureUrl": "../Assets/palaWingpadel.png"
+    "pictureUrl": "../Assets/palaWingpadel.png",
+    "stock": 4
 },
 {
     "id": 5,
-    "tittle": "Buzo Black Crown",
+    "title": "Buzo Black Crown",
     "price": 11000,
-    "pictureUrl": "../Assets/buzoBlackcrown.png"
+    "pictureUrl": "../Assets/buzoBlackcrown.png",
+    "stock": 5
 },
 {
     "id": 6,
     "title": "Remera Black Crown",
     "price": 5500,
-    "pictureUrl": "../Assets/remeraBlackcrown.png"
+    "pictureUrl": "../Assets/remeraBlackcrown.png",
+    "stock": 0
 },
 {
     "id": 7,
     "title": "Short Black Crown",
     "price": 3500,
-    "pictureUrl": "../Assets/shortBlackcrown.png"
+    "pictureUrl": "../Assets/shortBlackcrown.png",
+    "stock": 4
 }
 ]

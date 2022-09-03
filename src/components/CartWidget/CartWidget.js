@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from "../Assets/Logo.png"
+import Logo from "../NavBar/NavImages/Logo.png"
 import "./CartWidget.css"
 
 const CartWidget = () => {

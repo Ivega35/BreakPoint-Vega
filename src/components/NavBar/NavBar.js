@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavBar.css"
 import CartWidget from '../CartWidget/CartWidget'
-import Carrito from '../Assets/carrito.png'
+import Carrito from "./NavImages/carrito.png"
 
 const NavBar = () =>{
     return(

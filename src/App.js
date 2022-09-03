@@ -8,19 +8,13 @@ import ItemCounter from "./components/ItemCounter/ItemCounter";
 
 
 const App = () => {
-  const onAdd = (cant) =>{
-    console.log(`compraste ${cant} unidades`)
-}
+  
     return (
       <div className="App">
         <NavBar/>
         <div className="cards-container">
-        <ItemListContainer />
+          <ItemListContainer />
         </div>
-        <div className="CounterSection">
-        <ItemCounter initial={1} stock={5} onAdd={onAdd}/>
-        </div>
-        
       </div>
     );
     };
