@@ -1,35 +1,49 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import ItemCounter from "../ItemCounter/ItemCounter"
+import { Fragment, useState, useEffect} from "react";
+	import ItemList from "./ItemList";
+	import products from "../json/products.json";
+	
+	
 
+	
 
-const ItemListContainer = ({ data}) => {
- 
-  
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      
-        <CardMedia
-          component="img"
-          height="170"
-          image={data.image}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-			      {data.title}
-          </Typography>
-          <Typography variant="body2" color="text.primary">
-            <p>precio: ${data.price}</p>
-          </Typography>
-          
-        </CardContent>
-      
-    </Card>
-  );
-}
+	const ItemListContainer = (props) => {
+	
 
-export default ItemListContainer; 
+	    const [productos, setProductos] = useState([]);
+	
+
+	    const Promesa = () => {
+	        return new Promise ((resolve, reject) => {
+	            setTimeout (() => {
+	                resolve (products);
+	            }, 2000)
+	        }
+	        )
+	    }
+	
+
+	    useEffect(() => {
+	        Promesa().then((products) => {
+	            setProductos(products);
+	            console.log(products);
+	        })
+	    }, []);
+	
+
+	    if (productos.length === 0) {
+	        return <h1>Cargando...</h1>
+	
+
+	    }
+	    else {
+	    return (
+	        <Fragment>
+	            <p className="saludoIni">{props.greeting}</p>
+	            <ItemList data={productos} />
+	        </Fragment>      
+	    )
+	    }
+	}
+	
+
+	export default ItemListContainer;
