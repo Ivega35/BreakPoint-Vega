@@ -6,7 +6,7 @@ import { Fragment, useState, useEffect} from "react";
 
 	
 
-	const ItemListContainer = (props) => {
+	const ItemListContainer = () => {
 	
 
 	    const [productos, setProductos] = useState([]);
@@ -38,7 +38,6 @@ import { Fragment, useState, useEffect} from "react";
 	    else {
 	    return (
 	        <Fragment>
-	            <p className="saludoIni">{props.greeting}</p>
 	            <ItemList data={productos} />
 	        </Fragment>      
 	    )

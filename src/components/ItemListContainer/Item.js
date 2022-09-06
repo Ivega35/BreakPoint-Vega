@@ -1,6 +1,7 @@
 import React from 'react'
 import "./ItemListContainer.css"
 import ItemCounter from '../ItemCounter/ItemCounter'
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 const Item = ({nombre, precio, img, stock}) => {
     
     const onAdd = (cant) =>{
@@ -11,6 +12,9 @@ const Item = ({nombre, precio, img, stock}) => {
         }
     }
 
+    const showDetails =()=>{
+        <ItemDetailContainer/>
+    }
     return (            
     
 
@@ -22,6 +26,7 @@ const Item = ({nombre, precio, img, stock}) => {
                 <p className="card-text">Precio: ${precio}</p>
                 <p className='card-text'>Stock: {stock}</p>
                 <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>
+                <button type="button" class="btn btn-info" onClick= {showDetails} >Ver más...</button>
             </div>
         </div>
        
