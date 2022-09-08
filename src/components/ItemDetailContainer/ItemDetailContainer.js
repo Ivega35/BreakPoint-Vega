@@ -1,31 +1,34 @@
-import { Fragment, useState, useEffect} from 'react'
-import products from "../json/products.json"
-import ItemDetail from"./ItemDetail.js"
+import React, { useState, useEffect } from "react";
+import { getProductoById } from "../../asyncmock";
+import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader"
 
 const ItemDetailContainer = () => {
-    const [details, setDetails]= useState([]);
-    
-    const getItem = () => {
-        return new Promise ((resolve, reject) => {
-            setTimeout (() => {
-                resolve (products);
-            }, 2000)
-        }
-        )}
-    
-    useEffect(() => {
-        
-        getItem().then((products) => {
-            setDetails(products);
-            console.log(products);
-        })
-    }, []);
+  const [producto, setProducto]= useState([]);
+  const [Loading, setLoading] = useState(false);
+  const {productoId}= useParams();
 
+  useEffect(()=>{
+    setLoading(true)
+    getProductoById(productoId)
+      .then(producto =>{
+        setProducto(producto)
+        setLoading(false)
+      })
+      .catch(error=>{
+        console.log(error)
+        setLoading(false)
+      })
+  }, [productoId])
   return (
-    <Fragment>
-        <ItemDetail dataDetail={details} />
-    </Fragment>   
+    <div>
+      {Loading ? <Loader/> : <ItemDetail {...producto} />}
+    </div>
   )
-}
 
-export default ItemDetailContainer
+
+};
+
+
+export default ItemDetailContainer;

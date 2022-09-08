@@ -1,27 +1,27 @@
+
 import React from 'react'
+import ItemCounter from '../ItemCounter/ItemCounter'
 
-
-
-const ItemDetail = (dataDetail) => {
+const ItemDetail = (title, price, description, pictureUrl, stock) => {
+  const onAdd = (cant) =>{
+    if(stock !=0 ){  
+    alert(`compraste ${cant} unidades del producto: ${title}`)
+    }else{
+        alert(`El producto: ${title} se encuentra agotado!`)
+    }
+}
   return (
-    <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src= {dataDetail.pictureUrl} class="img-fluid rounded-start" alt="Producto"/>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{dataDetail.title}</h5>
-        <p class="card-text"> {dataDetail.description} </p>
-        <p class="card-text"> {dataDetail.price}</p>
-      </div>
-      <a href="#" class="btn btn-primary">Comprar</a>
-    </div>
     
+    <div class="card" style="width: 18rem;">
+  <img src={pictureUrl} class="card-img-top" alt="..."/>
+  <div class="card-body">
+    <p class="card-text">{title} </p>
+    <p class="card-text">{price} </p>
+    <ItemCounter stock={stock} initial={1} onAdd={onAdd}/>
   </div>
 </div>
-
   )
 }
 
-export default ItemDetail;
+export default ItemDetail
+
