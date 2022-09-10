@@ -18,11 +18,13 @@ const ItemCounter = ({initial, stock, onAdd}) => {
   return (
     <div>
     <div className='counterSection'>
-      <button className="btnCounter" onClick={handlerCounterUp}>+</button>
-      <h5>Cantidad: {counter}</h5>
-      <button className="btnCounter" onClick={handlerCounterDown}>-</button>
+      <button type="button" className="btn btn-outline-info" onClick={handlerCounterUp}>+</button>
+      <h5 className='mx-3 text-light'>Cantidad: {counter}</h5>
+      <button type="button" className="btn btn-outline-info" onClick={handlerCounterDown}>-</button>
+    </div >
+    <div className='text-center p-3'>
+      <a href='#' className='btn btn-primary' onClick= {() => onAdd(counter)} >Agregar al carrito</a>
     </div>
-    <a href='#' className='btn btn-primary' onClick= {() => onAdd(counter)} >Agregar al carrito</a>
     </div>
   )
 }

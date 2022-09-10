@@ -13,7 +13,7 @@ const productos = [
     title: "paleta Odea Speed 12k",
     price: 57000,
     pictureUrl: "../Assets/palaOdea.png",
-    stock: 2,
+    stock: '2',
     category: "palas",
     description: "Está diseñada con forma de lágrima y balance medio, mientras que las caras están confeccionadas con fibra de carbono. "
 },

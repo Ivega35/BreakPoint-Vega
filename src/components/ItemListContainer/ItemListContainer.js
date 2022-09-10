@@ -1,6 +1,6 @@
-import { Fragment, useState, useEffect} from "react";
+import { useState, useEffect} from "react";
 import { getProductos, getProductosByCategory } from "../../asyncmock";
-import ItemList from "./ItemList";
+import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import Loader from '../Loader/Loader'
 	

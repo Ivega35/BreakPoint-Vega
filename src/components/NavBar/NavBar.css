@@ -1,7 +1,18 @@
-
 .nav-link{
-    color: white;
+    text-decoration: none;
+    color:aliceblue;
+    border-radius: 15px;
+    
 }
-.navbar-brand{
-    color: white;
+.nav-link:hover{
+    color: black;
+    background-color: rgb(19, 102, 8);
+    
+}
+.nav-item{
+    padding-inline: 40px;
+}
+
+.cart{
+    padding-left: 35rem;
 }

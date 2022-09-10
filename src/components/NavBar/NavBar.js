@@ -1,31 +1,39 @@
 import React from "react";
-import "./NavBar.css"
 import CartWidget from '../CartWidget/CartWidget'
 import Carrito from "./NavImages/carrito.png"
 import { Link } from "react-router-dom";
+import "./NavBar.css"
 
 const NavBar = () =>{
     return(
-      <nav class="navbar navbar-expand-lg bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#"><CartWidget/></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg bg-dark" >
+      <div className="container-fluid" >
+        <Link to="/" className="navbar-brand">
+          <CartWidget/>
+        </Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-auto mb-lg-0">
-              <Link to='/' className="Link">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to='/' className="nav-link">
                 Home
               </Link>
-              <Link to='/category/palas' className="Link">
+            </li>
+            <li className="nav-item">  
+              <Link to='/category/palas' className="nav-link">
                 palas
               </Link>
-              <Link to='/category/indumentaria' className="Link">
+            </li> 
+            <li className="nav-item">
+              <Link to='/category/indumentaria' className="nav-link">
                 equipamiento
               </Link>
+            </li>
           </ul>
-          <Link to='/' className="Link">
-            <img class="pr-5" src={Carrito}/>
+            <Link to='/' className="cart">
+              <img class="pr-5" src={Carrito}/>
             </Link>
           
           

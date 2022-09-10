@@ -1,0 +1,18 @@
+.card-body{
+    background-color: #202020;
+    border: white solid 1px;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    margin: 15px;
+    height: 62vh;
+}
+.img-fluid{
+    border: black solid 1px; 
+    width: 385px;
+
+}
+.detailCard{
+    margin-top: 15px; 
+    background-color: rgb(8, 54, 6);
+}
