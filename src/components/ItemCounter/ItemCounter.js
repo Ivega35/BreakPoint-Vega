@@ -1,29 +1,20 @@
-import React, {useState} from 'react'
 import "./ItemCounter.css"
+import { Link } from "react-router-dom";
 
-const ItemCounter = ({initial, stock, onAdd}) => {
-    const [counter, setCounter]= useState(initial);
-
-    const handlerCounterUp = () =>{
-        
-      if(counter < stock){
-          setCounter(counter + 1 );
-        };
-    };
-    const handlerCounterDown = () =>{
-      if(counter > 1 ){
-        setCounter(counter - 1 );
-      };
-    };
+const ItemCounter = ({countUp, countDown, onAdd, cant}) => {
+   
   return (
     <div>
     <div className='counterSection'>
-      <button type="button" className="btn btn-outline-info" onClick={handlerCounterUp}>+</button>
-      <h5 className='mx-3 text-light'>Cantidad: {counter}</h5>
-      <button type="button" className="btn btn-outline-info" onClick={handlerCounterDown}>-</button>
+      <button type="button" className="btn btn-outline-info" onClick={() => countUp()}>+</button>
+      <h5 className='mx-3 text-light'>Cantidad: {cant}</h5>
+      <button type="button" className="btn btn-outline-info" onClick={() => countDown()}>-</button>
     </div >
     <div className='text-center p-3'>
-      <a href='#' className='btn btn-primary' onClick= {() => onAdd(counter)} >Agregar al carrito</a>
+      <button className='btn btn-primary mx-2' onClick= {() => onAdd()} >Agregar al carrito</button>
+      <Link to={`/cart`}>
+      <button className="btn btn-primary mx-2">Finalizar compra</button>
+      </Link>
     </div>
     </div>
   )

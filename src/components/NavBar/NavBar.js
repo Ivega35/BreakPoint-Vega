@@ -32,8 +32,8 @@ const NavBar = () =>{
               </Link>
             </li>
           </ul>
-            <Link to='/' className="cart">
-              <img class="pr-5" src={Carrito}/>
+            <Link to='/cart' className="cart">
+              <img class="pr-5" src={Carrito} alt="Cart"/>
             </Link>
           
           
