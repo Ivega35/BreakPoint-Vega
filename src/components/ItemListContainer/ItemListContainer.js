@@ -1,5 +1,5 @@
-import { useState, useEffect} from "react";
-import { getProductos, getProductosByCategory } from "../../asyncmock";
+import { useState, useEffect, useContext} from "react";
+import { getProductos, getProductosByCategory, ItemsContext } from "../../CartContext"
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import Loader from '../Loader/Loader'
@@ -9,7 +9,7 @@ import Loader from '../Loader/Loader'
 
 const ItemListContainer = () => {
 		
-	const [productos, setProductos] = useState([]);
+	const [items, setItems] = useContext(ItemsContext);
 	const [loading, setLoading] = useState(false);
 	const {categoryId} = useParams();
 	
@@ -18,13 +18,13 @@ const ItemListContainer = () => {
 		setLoading(true)
 
 	    if (!categoryId) {
-	        getProductos().then(productos =>{
-				setProductos(productos)
+	        getProductos().then(items =>{
+				setItems(items)
 				setLoading(false)
 			})
 		}else {
-			getProductosByCategory(categoryId).then(productos =>{
-				setProductos(productos)
+			getProductosByCategory(categoryId).then(items =>{
+				setItems(items)
 				setLoading(false)
 			})
 	    }
@@ -32,7 +32,7 @@ const ItemListContainer = () => {
 
 	return(
 	<div >
-		{loading ? <Loader/> : <ItemList data={productos}/>}
+		{loading ? <Loader/> : <ItemList data={items}/>}
 
 	</div>
 )

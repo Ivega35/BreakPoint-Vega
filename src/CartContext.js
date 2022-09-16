@@ -1,3 +1,7 @@
+import React, { createContext, useState } from "react";
+
+export const ItemsContext = createContext();
+
 const productos = [
     {
     id: '1',
@@ -64,6 +68,17 @@ const productos = [
 }
 ]
 
+export const ItemsPovider = ({children}) =>{
+    const [items, setItems]= useState(productos);
+    
+
+    return(
+        <ItemsContext.Provider value={[items, setItems]}>
+            {children}
+        </ItemsContext.Provider>
+    )
+
+}
 export const getProductos = () => {
     return new Promise ((resolve, reject) =>{
         setTimeout(() =>{

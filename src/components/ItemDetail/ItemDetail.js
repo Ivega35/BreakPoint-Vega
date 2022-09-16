@@ -3,42 +3,31 @@ import React, { useState } from 'react'
 import ItemCounter from '../ItemCounter/ItemCounter'
 import './ItemDetail.css'
 
-const ItemDetail = ( {title, price, description, pictureUrl, stock } ) => {
-  
-  const [counter, setCounter]= useState(1);
-  const [cart, setCart]= useState(); 
-  
-  const cartItem ={
-    "title": title, 
-    "price": price, 
-    "img": pictureUrl, 
-    "cant": counter
-  };
-  const handlerCounterUp = () =>{
-      
-    if(counter < stock){
-        setCounter(counter + 1 );
-      };
-  }
-  const handlerCounterDown = () =>{
-    if(counter > 1 ){
-      setCounter(counter - 1 );
-    };
+const ItemDetail = ( {id, price, title, description, pictureUrl, stock} ) => { 
+  const [cart, setCart]= useState([]);
+   
+  const cartItem={
+    title: {title}, 
+    price: {price}, 
+    img: {pictureUrl}, 
+    id: {id}, 
   }
 
-  const onAdd = () =>{
- 
-    if(stock !== 0 ){  
-      setCart(cartItem);
-      console.log(cart);
-      
+  const onAdd= () =>{
+    if(stock !== 0){ 
+
+      setCart([...cart , cartItem]);
     }else{
-      alert(`El producto: ${title} se encuentra agotado!`)
-    };
-
-     
+      alert("el producto se encuentra agotado")
+    }
+      
+      
+    
 }
-  return (
+  
+const isInCart = cart.includes(cartItem.id)
+  
+return (
     
   <div className="detailCard">
     <div className="row g-0 py-3">
@@ -51,12 +40,10 @@ const ItemDetail = ( {title, price, description, pictureUrl, stock } ) => {
           <p className="card-text text-light text-center px-5 py-4">{description}</p>
           <p className="card-text text-light fs-5 text-center"> <strong> Precio: ${price} </strong> </p>
           <p className="card-text text-light text-center">Stock: {stock}</p>
-          <div>
-        {cart === cartItem ? <p>El producto fue añadido al carrito con exito!</p> : <ItemCounter onAdd={onAdd} countUp={handlerCounterUp} countDown={handlerCounterDown} cant={counter}/>} 
-        </div>
-        </div>
+          
+          <ItemCounter onAdd={onAdd} isInCart={isInCart} stock= {stock}/>
         
-       
+        </div>
       </div>
     </div>
   </div>

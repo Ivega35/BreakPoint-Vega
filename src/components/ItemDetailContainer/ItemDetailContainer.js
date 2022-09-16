@@ -1,19 +1,19 @@
-import { useState, useEffect} from 'react'
-import { getProductoById } from '../../asyncmock'
+import { useState, useEffect, useContext} from 'react'
+import { getProductoById, ItemsContext } from '../../CartContext'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 
 const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState()
+    const [item, setItem] = useContext(ItemsContext)
     const [loading, setLoading] = useState(false)
     const {productoId} = useParams();
 
     useEffect(() => {
         setLoading(true)
         getProductoById(productoId)
-            .then(producto => {
-                setProducto(producto)
+            .then(item => {
+                setItem(item)
                 setLoading(false)
             })
             .catch(error => {
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div>
-          {loading ? <Loader /> : <ItemDetail {...producto}/> }
+          {loading ? <Loader /> : <ItemDetail {...item}/> }
         </div>
     )
 }
