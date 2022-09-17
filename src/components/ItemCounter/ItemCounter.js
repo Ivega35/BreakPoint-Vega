@@ -1,40 +1,51 @@
-import "./ItemCounter.css"
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import "./ItemCounter.css"
 
-const ItemCounter = ({onAdd, isInCart, stock}) => {
+const ItemCount = ({stock, initial, onAdd, addFail}) => {
 
-  const [counter, setCounter]= useState(1);
-   
-  const handlerCounterUp = () =>{
-      
-    if(counter < stock){
-        setCounter(counter + 1 );
-      };
-  }
-  const handlerCounterDown = () =>{
-    if(counter > 1 ){
-      setCounter(counter - 1 );
+    const [count, setCount] = useState(1);
+
+
+    const sumar = () => {
+        if (count < stock) {
+            setCount(count + 1);
+        }
     };
-  }
 
-  return (
-    <div>
-    <div className='counterSection'>
-      <button type="button" className="btn btn-outline-info" onClick={handlerCounterUp}>+</button>
-      <h5 className='mx-3 text-light'>Cantidad: {counter}</h5>
-      <button type="button" className="btn btn-outline-info" onClick={handlerCounterDown}>-</button>
-    </div >
-    <div className='text-center p-3'>
-      
-    {!isInCart ? <button className='btn btn-primary mx-2' onClick= {() => onAdd()} >Agregar al carrito</button> : <Link to="./cart"><button className="btn btn-primary mx-2"></button></Link>}
-      
-    <Link to={`/cart`}>
-      <button className="btn btn-primary mx-2">Finalizar compra</button>
-    </Link>
-    </div>
-    </div>
-  )
+    const restar = () => {
+        if (count > 1) {
+            setCount(count - 1);
+        }
+    };
+
+    const agregarCarrito = () => {
+        if (count <= stock) {
+            onAdd(count);
+            setCount(1);
+        }
+        else {
+            addFail();
+        }
+    }
+    
+
+    return (   
+        <div>
+            
+            <div className="counterSection">
+                <button className="btn btn-outline-info mx-3" onClick={restar}>-</button> 
+                <p className="text-light fs-5">cantidad: {count}</p>
+                <button className="btn btn-outline-info mx-3" onClick={sumar}>+</button>
+            </div>
+            <div className="d-flex justify-content-center pt-3">
+                <button className="btn btn-info" onClick={agregarCarrito}>Agregar al carrito</button>
+            </div>    
+            
+        </div>
+            
+    );
 }
 
-export default ItemCounter;
+
+
+export default ItemCount

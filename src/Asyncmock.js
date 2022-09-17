@@ -1,11 +1,7 @@
-import React, { createContext, useState } from "react";
-
-export const ItemsContext = createContext();
-
 const productos = [
     {
     id: '1',
-    title: "paleta Odea Legend",
+    title: "Paleta Odea Legend",
     price: 37000,
     pictureUrl: "../Assets/palaLegend.png",
     stock:4,
@@ -14,7 +10,7 @@ const productos = [
 },
 {
     id: '2',
-    title: "paleta Odea Speed 12k",
+    title: "Paleta Odea Speed 12k",
     price: 57000,
     pictureUrl: "../Assets/palaOdea.png",
     stock: '2',
@@ -23,7 +19,7 @@ const productos = [
 },
 {
     id: '3',
-    title: "paleta Siux",
+    title: "Paleta Siux",
     price: 22000,
     pictureUrl: "../Assets/palaSiux.png",
     stock: 0,
@@ -32,7 +28,7 @@ const productos = [
 },
 {
     id: '4',
-    title: "paleta Wingpadel",
+    title: "Paleta Wingpadel",
     price: 67000,
     pictureUrl: "../Assets/palaWingpadel.png",
     stock: 4,
@@ -68,17 +64,6 @@ const productos = [
 }
 ]
 
-export const ItemsPovider = ({children}) =>{
-    const [items, setItems]= useState(productos);
-    
-
-    return(
-        <ItemsContext.Provider value={[items, setItems]}>
-            {children}
-        </ItemsContext.Provider>
-    )
-
-}
 export const getProductos = () => {
     return new Promise ((resolve, reject) =>{
         setTimeout(() =>{

@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext} from "react";
-import { getProductos, getProductosByCategory, ItemsContext } from "../../CartContext"
+import { useState, useEffect} from "react";
+import { getProductos, getProductosByCategory} from "../../Asyncmock"
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import Loader from '../Loader/Loader'
@@ -9,7 +9,7 @@ import Loader from '../Loader/Loader'
 
 const ItemListContainer = () => {
 		
-	const [items, setItems] = useContext(ItemsContext);
+	const [items, setItems] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const {categoryId} = useParams();
 	

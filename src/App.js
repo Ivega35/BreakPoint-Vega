@@ -1,16 +1,16 @@
 import './App.css';
 import React from 'react';
-import {ItemsPovider} from "./CartContext"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import NavBar from "./components/NavBar/NavBar"
 import Cart from "./components/Cart/Cart"
+import CustomProvider from './components/Context/Context';
 
 function App() {
   return (
     
-    <ItemsPovider>
+    <CustomProvider>
     <BrowserRouter>
     <div className="App">
       <NavBar/>
@@ -22,7 +22,8 @@ function App() {
         </Routes>
     </div>
     </BrowserRouter>
-    </ItemsPovider>
+    </CustomProvider>
+    
     
   );
 }
