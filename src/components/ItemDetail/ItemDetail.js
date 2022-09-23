@@ -59,7 +59,7 @@ const ItemDetail = ( {dataDetail} ) => {
           <p className="card-text text-light fs-5 text-center"> <strong> Precio: ${dataDetail.price} </strong> </p>
           <p className="card-text text-light text-center">Stock: {dataDetail.stock}</p>
 
-      {confirmar ? <div className="d-flex justify-content-center">
+      {confirmar ? <div className="d-flex justify-content-center pt-4">
         <NavLink to="/cart"><button className="btn btn-info mx-3">Terminar compra</button></NavLink>
         <NavLink to="/"><button className="btn btn-info mx-3"> Volver al catalogo</button></NavLink>
         </div> : <ItemCount stock={dataDetail.stock} onAdd={onAdd} addFail={onAddFail} />}

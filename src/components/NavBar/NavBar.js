@@ -3,8 +3,11 @@ import CartWidget from '../CartWidget/CartWidget'
 import Carrito from "./NavImages/carrito.png"
 import { Link } from "react-router-dom";
 import "./NavBar.css"
+import { useContexto } from "../Context/Context";
 
 const NavBar = () =>{
+  const {carrito, cantidadTotal} = useContexto();
+
     return(
       <nav className="navbar navbar-expand-lg bg-dark" >
       <div className="container-fluid" >
@@ -32,9 +35,13 @@ const NavBar = () =>{
               </Link>
             </li>
           </ul>
+          {carrito.length > 0 ? (
             <Link to='/cart' className="cart">
-              <img class="pr-5" src={Carrito} alt="Cart"/>
-            </Link>
+              <div className="d-flex align-items-center bg-info px-2 rounded">
+               <img class="pr-5" src={Carrito} alt="Cart"/>
+               <p className="text-dark fw-bold fs-2 px-3 pt-2 ">{cantidadTotal}</p>
+              </div>
+            </Link>) : null}
           
           
         </div>

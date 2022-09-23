@@ -9,7 +9,6 @@ export const CustomProvider = ({ defaultValue = [], children }) => {
 
     /* add */
     const addItem = (item, quantity) => {
-        //si ya está en el carrito, lo busco y le sumo la cantidad
         if (isInCart(item.id)) {
 
             const newCart = [...cart]
