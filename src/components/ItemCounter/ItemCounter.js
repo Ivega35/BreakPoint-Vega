@@ -33,9 +33,9 @@ const ItemCount = ({stock, initial, onAdd, addFail}) => {
         <div>
             
             <div className="counterSection">
-                <button className="btn btn-outline-info mx-3" onClick={restar}>-</button> 
-                <p className="text-light fs-5">cantidad: {count}</p>
                 <button className="btn btn-outline-info mx-3" onClick={sumar}>+</button>
+                <p className="text-light fs-5">Cantidad: {count}</p>
+                <button className="btn btn-outline-info mx-3" onClick={restar}>-</button> 
             </div>
             <div className="d-flex justify-content-center pt-3">
                 <button className="btn btn-info" onClick={agregarCarrito}>Agregar al carrito</button>

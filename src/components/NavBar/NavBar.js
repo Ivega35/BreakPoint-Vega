@@ -26,12 +26,12 @@ const NavBar = () =>{
             </li>
             <li className="nav-item">  
               <Link to='/category/palas' className="nav-link">
-                palas
+                Palas
               </Link>
             </li> 
             <li className="nav-item">
               <Link to='/category/indumentaria' className="nav-link">
-                equipamiento
+                Equipamiento
               </Link>
             </li>
           </ul>
@@ -39,7 +39,7 @@ const NavBar = () =>{
             <Link to='/cart' className="cart">
               <div className="d-flex align-items-center bg-info px-2 rounded">
                <img class="pr-5" src={Carrito} alt="Cart"/>
-               <p className="text-dark fw-bold fs-2 px-3 pt-2 ">{cantidadTotal}</p>
+               <p className="text-light fw-bold fs-2 px-3 pt-2 ">{cantidadTotal}</p>
               </div>
             </Link>) : null}
           

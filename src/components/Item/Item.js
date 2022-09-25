@@ -20,7 +20,7 @@ const Item = ({itemData}) => {
       </div>
       <div className="d-flex justify-content-center pb-3">
           <Link to={`/detail/${itemData.id}`}>
-              <button className="btn btn-info">ver detalles</button>
+              <button className="btn btn-info">Ver detalles</button>
           </Link>
       </div>
   </div>

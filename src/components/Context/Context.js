@@ -37,7 +37,10 @@ const CustomProvider = ({children}) => {
 
         const copiaCarritoTotal= carrito.find(producto => producto.id == id)
         const deletedPrice= precioTotal - copiaCarritoTotal.price * copiaCarritoTotal.cantidad
+        const deletedCant= cantidadTotal - copiaCarritoTotal.cantidad
+        setCantidadTotal(deletedCant);
         setPrecioTotal(deletedPrice);
+        
         
         
     } 
