@@ -5,10 +5,7 @@ import { Link } from "react-router-dom";
 
 const Item = ({itemData}) => {
     
-    
     return (     
-        
-            
       <div className="card">
       <div className="d-flex justify-content-center">
           <img src={itemData.pictureUrl} className="card-img-top" alt={itemData.title}/>
