@@ -6,6 +6,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import NavBar from "./components/NavBar/NavBar"
 import Cart from "./components/Cart/Cart"
 import CustomProvider from './components/Context/Context';
+import BuysForm from './components/BuysForm/BuysForm';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
           <Route path='/detail/:productoId' element={<ItemDetailContainer/>}/>
           <Route path='/cart' element={<Cart/>} />
+          <Route path='/shop' element= {<BuysForm/>}/>
         </Routes>
     </div>
     </BrowserRouter>

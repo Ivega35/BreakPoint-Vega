@@ -7,21 +7,6 @@ const Cart = () => {
     const { carrito, borrarDelCarrito, limpiarCarrito, precioTotal} = useContexto();
     console.log(carrito, borrarDelCarrito, limpiarCarrito);
 
-    const compraFinalizada = () =>{
-      
-      toast.success('Su compra fue finalizada con exito!', {
-        theme: "dark",
-        position: "top-left",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        className: "toast-success",
-      });
-    }
-
     return (
       <div className=" container-fluid">
       <div className="col-lg-12 d-flex justify-content-center flex-column ">
@@ -43,7 +28,7 @@ const Cart = () => {
           
             <h4 className="text-center pt-2">Total: ${precioTotal}</h4>
             <div className="d-flex justify-content-center py-3">
-            <button className="btn btn-primary mx-5" onClick={compraFinalizada}> Finalizar Compra</button>
+            <NavLink to='/shop' className="btn btn-primary mx-5">Finalizar Compra</NavLink>
             <button className="btn btn-primary mx-5" onClick={limpiarCarrito}>Limpiar Carrito</button>
           </div>
           <ToastContainer />
