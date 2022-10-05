@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import TextField from '@mui/material/TextField';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc} from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
 import { useContexto } from "../Context/Context";
 import MessageSuccess from '../MessageSuccess/MessageSuccess';
 import "./BuysForm.css"
+
+
 
 
 const initialState={
@@ -14,8 +16,8 @@ const initialState={
 }
 const BuysForm = () => {
     const [values, setValues]= useState(initialState);
-    const [buyId, setBuyId]= useState()
-    const {carrito, precioTotal}= useContexto();
+    const [buyId, setBuyId]= useState('')
+    const {carrito,limpiarCarrito , precioTotal}= useContexto();
     
     const handleOnChange = (e) =>{
         const {value, name} = e.target;
@@ -27,23 +29,21 @@ const BuysForm = () => {
     
     const onSubmit = async (e) =>{
         e.preventDefault(); 
-        const getCart=  carrito
-        const fecha= new Date().toLocalString()+ "";
-        
         const docRef= await addDoc(collection(db, 'Purchases'), {
             buyer: {values}, 
-            items: {getCart},
-            date: fecha, 
+            items: carrito,
             total: precioTotal
         });
         setBuyId(docRef.id)
         setValues(initialState)
+        limpiarCarrito();
     }
 
   return (
     <div>
-        <h1 className='text-center'>Datos del comprador</h1>
-        <form onSubmit={onSubmit} className="FormBody">
+        <h1 className='text-center my-3'>Datos del comprador</h1>
+        <form onSubmit={onSubmit} >
+           <div className="FormBody">
             <TextField 
                 placeholder='Nombre y apellido' 
                 name="name" 
@@ -63,10 +63,14 @@ const BuysForm = () => {
                 name="email" 
                 value={values.email}
                 onChange={handleOnChange}/>
-
-            <button className='btn btn-primary'>Comprar</button>
+            
+            </div>
+            <div className='btn-section'>
+            <button className='btn btn-primary my-3 fs-4'>Comprar</button>
+            </div>
+            {buyId && <MessageSuccess compraID={buyId}/> }
         </form>
-        {buyId && <MessageSuccess buyId={buyId}/> }
+        
     </div>
   )
 }
